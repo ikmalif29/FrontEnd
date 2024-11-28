@@ -13,7 +13,7 @@ const Watch = () => {
     const fetchFilm = async () => {
       try {
         const response = await fetch(
-          `https://backend-khaki-rho.vercel.app/api/get-film/${id}`,
+          `http://localhost:3000/api/get-film/${id}`,
           { headers: { Authorization: `Bearer ${token}` } }
         );
         if (!response.ok) {
@@ -33,7 +33,7 @@ const Watch = () => {
       const fetchGenre = async () => {
         try {
           const response = await fetch(
-            `https://backend-khaki-rho.vercel.app/api/get-genre-by-id/${film.id_type}`,
+            `http://localhost:3000/api/get-genre-by-id/${film.id_type}`,
             { headers: { Authorization: `Bearer ${token}` } }
           );
           if (!response.ok) {
@@ -71,7 +71,7 @@ const Watch = () => {
             <video
               controls
               className="w-full h-auto object-cover"
-              src={`https://backend-khaki-rho.vercel.app/uploads/${film.video}`}
+              src={`http://localhost:3000/uploads/${film.video}`}
             >
               Your browser does not support the video tag.
             </video>

@@ -19,7 +19,7 @@ const ListFilm = () => {
   useEffect(() => {
     const fetchFilms = async () => {
       try {
-        const response = await fetch(`https://backend-khaki-rho.vercel.app/api/get-all-films`, {
+        const response = await fetch(`http://localhost:3000/api/get-all-films`, {
           headers: { Authorization: `Bearer ${token}` },
           method: "GET",
         });

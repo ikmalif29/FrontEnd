@@ -15,7 +15,7 @@ const GenreList = () => {
   useEffect(() => {
     const fetchGenres = async () => {
       try {
-        const response = await fetch(`https://backend-khaki-rho.vercel.app/api/get-genre`, {
+        const response = await fetch(`http://localhost:3000/api/get-genre`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         if (!response.ok) throw new Error("Failed to fetch genres");
@@ -28,7 +28,7 @@ const GenreList = () => {
 
     const fetchFilms = async () => {
       try {
-        const response = await fetch(`https://backend-khaki-rho.vercel.app/api/get-all-films`, {
+        const response = await fetch(`http://localhost:3000/api/get-all-films`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         const data = await response.json();

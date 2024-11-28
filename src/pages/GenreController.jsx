@@ -18,7 +18,7 @@ const GenreController = () => {
         const fetchGenres = async () => {
             try {
                 const response = await fetch(
-                    `https://backend-khaki-rho.vercel.app/api/get-genre`, {
+                    `http://localhost:3000/api/get-genre`, {
                     headers: { "Authorization": `Bearer ${token}` }
                 }
                 );
@@ -33,7 +33,7 @@ const GenreController = () => {
         const fetchFilms = async () => {
             try {
                 const response = await fetch(
-                    `https://backend-khaki-rho.vercel.app/api/get-all-films`, {
+                    `http://localhost:3000/api/get-all-films`, {
                     headers: { "Authorization": `Bearer ${token}` }
                 }
                 );
@@ -51,7 +51,7 @@ const GenreController = () => {
     const handleButtonClick = async (id) => {
         try {
             const response = await fetch(
-                `https://backend-khaki-rho.vercel.app/api/get-film-by-genre/${id}`, {
+                `http://localhost:3000/api/get-film-by-genre/${id}`, {
                 headers: { "Authorization": `Bearer ${token}` }
             }
             );
@@ -70,12 +70,12 @@ const GenreController = () => {
         try {
             const genreExist = genres.some((item) => item.genre === addGenre.genre);
             if (!genreExist) {
-                await fetch(`https://backend-khaki-rho.vercel.app/api/post-genre`, {
+                await fetch(`http://localhost:3000/api/post-genre`, {
                     method: "POST",
                     headers: { "Content-Type": "application/json", "Authorization": `Bearer ${token}` },
                     body: JSON.stringify(addGenre),
                 });
-                const response = await fetch(`https://backend-khaki-rho.vercel.app/api/get-genre`, {
+                const response = await fetch(`http://localhost:3000/api/get-genre`, {
                     headers: { "Authorization": `Bearer ${token}` }
                 });
                 if (response.ok) {
@@ -95,14 +95,14 @@ const GenreController = () => {
         if (!updateGenre || !updateGenre.genre) return;
         try {
             await fetch(
-                `https://backend-khaki-rho.vercel.app/api/update-genre/${id}`, {
+                `http://localhost:3000/api/update-genre/${id}`, {
                 method: "PUT",
                 headers: { "Content-Type": "application/json", "Authorization": `Bearer ${token}` },
                 body: JSON.stringify(updateGenre),
             }
             );
             setUpdateGenre(null);
-            const response = await fetch(`https://backend-khaki-rho.vercel.app/api/get-genre`, {
+            const response = await fetch(`http://localhost:3000/api/get-genre`, {
                 headers: { "Authorization": `Bearer ${token}` }
             });
             if (response.ok) {
@@ -118,12 +118,12 @@ const GenreController = () => {
         if (window.confirm("Are you sure you want to delete this genre?")) {
             try {
                 await fetch(
-                    `https://backend-khaki-rho.vercel.app/api/delete-genre/${id}`, {
+                    `http://localhost:3000/api/delete-genre/${id}`, {
                     method: "DELETE",
                     headers: { "Authorization": `Bearer ${token}` }
                 }
                 );
-                const response = await fetch(`https://backend-khaki-rho.vercel.app/api/get-genre`, {
+                const response = await fetch(`http://localhost:3000/api/get-genre`, {
                     headers: { "Authorization": `Bearer ${token}` }
                 });
                 if (response.ok) {
