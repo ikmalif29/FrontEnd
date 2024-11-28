@@ -20,7 +20,7 @@ const FilmController = () => {
     const fetchFilms = async () => {
       try {
         const response = await fetch(
-          `http://localhost:3000/api/get-all-films`, {
+          `https://backend-khaki-rho.vercel.app/api/get-all-films`, {
           headers: { "Authorization": `Bearer ${token}` },
           method: "GET"
         }
@@ -34,7 +34,7 @@ const FilmController = () => {
     };
     const fetchGenre = async () => {
       const response = await fetch(
-        `http://localhost:3000/api/get-genre`, {
+        `https://backend-khaki-rho.vercel.app/api/get-genre`, {
         headers: { "Authorization": `Bearer ${token}` }
       }
       );
@@ -79,7 +79,7 @@ const FilmController = () => {
       });
     const handleUpdateFilm = async () => {
       await fetch(
-        `http://localhost:3000/api/update-film/${updatedFilms.id_film
+        `https://backend-khaki-rho.vercel.app/api/update-film/${updatedFilms.id_film
         }`,
         {
           method: "PUT",
@@ -91,7 +91,7 @@ const FilmController = () => {
         }
       )
       const updatedResponse = await fetch(
-        `http://localhost:3000/api/get-all-films`, {
+        `https://backend-khaki-rho.vercel.app/api/get-all-films`, {
         headers: { "Authorization": `Bearer ${token}` },
       }
       );
@@ -101,7 +101,7 @@ const FilmController = () => {
     }
     const handleDeleteFilm = async (id_film) => {
       if (confirm("Apakah anda yakin akan menghapus produk ini?")) {
-        await fetch(`http://localhost:3000/api/delete-film/${id_film}`, {
+        await fetch(`https://backend-khaki-rho.vercel.app/api/delete-film/${id_film}`, {
           method: "DELETE",
           headers: { "Authorization": `Bearer ${token}` },
         })
@@ -110,7 +110,7 @@ const FilmController = () => {
             alert(message);
           });
         const updatedResponse = await fetch(
-          `http://localhost:3000/api/get-all-films`, {
+          `https://backend-khaki-rho.vercel.app/api/get-all-films`, {
           headers: { "Authorization": `Bearer ${token}` },
         }
         );
@@ -141,7 +141,7 @@ const FilmController = () => {
           if (newFilm.video) {
             formData.append("video", newFilm.video);
           }
-          const response = await fetch(`http://localhost:3000/api/post-film`, {
+          const response = await fetch(`https://backend-khaki-rho.vercel.app/api/post-film`, {
             method: "POST",
             body: formData,
             headers: { "Authorization": `Bearer ${token}` },
@@ -149,7 +149,7 @@ const FilmController = () => {
           );
           await response.json();
           const updatedResponse = await fetch(
-            `http://localhost:3000/api/get-all-films`, {
+            `https://backend-khaki-rho.vercel.app/api/get-all-films`, {
             headers: { "Authorization": `Bearer ${token}` },
           }
           );

@@ -12,12 +12,12 @@ const Register = () => {
 
   const handleAddAccount = async () => {
     try {
-      const resultUsers = await fetch(`http://localhost:3000/api/get-users`);
+      const resultUsers = await fetch(`https://backend-khaki-rho.vercel.app/api/get-users`);
       const users = await resultUsers.json();
       const userExists = users.some((item) => item.username === username);
 
       if (!userExists) {
-        const response = await fetch(`http://localhost:3000/api/register`, {
+        const response = await fetch(`https://backend-khaki-rho.vercel.app/api/register`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
